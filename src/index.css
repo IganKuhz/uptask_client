@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	input[type='number']::-webkit-inner-spin-button,
+	input[type='number']::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}
+
+.collapse-title,
+:where(.collapse > input[type='checkbox']),
+:where(.collapse > input[type='radio']) {
+	min-height: auto;
+}
+
+/* .input {
+	@apply rounded-md;
+}
+
+.textarea {
+	@apply rounded-md;
+}
+
+.select {
+	@apply rounded-md;
+} */
+
+.tab.tab-active:not(.tab-disabled):not([disabled]),
+.tab:is(input:checked) {
+	border-color: var(--secondary) !important;
+}
+
+/* .tabs {
+	@apply rounded-md;
+}
+
+.tabs-boxed {
+	@apply rounded-md;
+}
+
+.tab {
+	@apply rounded-md;
+}
+
+.tab-active {
+	@apply rounded-md;
+} */
