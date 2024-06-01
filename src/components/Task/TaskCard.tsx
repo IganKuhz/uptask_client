@@ -60,65 +60,67 @@ function TaskCard({ task, onEditTask, onViewTask, hasAuth }: TaskCardProps) {
 			<div className='relative'>
 				<h2 className='text-lg font-semibold text-gray-800'>{task.taskName}</h2>
 
-				{hasAuth && (
-					<div className='dropdown dropdown-left absolute -right-4 -top-4'>
-						<div
-							tabIndex={0}
-							role='button'
-							className='btn btn-square btn-sm m-1 border-0 bg-yellow-300 text-gray-800 hover:bg-yellow-400'
-						>
-							<EllipsisVerticalIcon size={20} />
-						</div>
-
-						<ul
-							tabIndex={0}
-							className='menu dropdown-content z-[1] w-52 space-y-1 rounded-box bg-yellow-200/70 text-gray-800 shadow-lg backdrop-blur-sm'
-						>
-							<li className='rounded-lg hover:bg-yellow-400/40'>
-								<button onClick={() => onViewTask(task._id)}>
-									<ListChecks
-										size={20}
-										className='text-green-500'
-									/>
-									<span>Ver detalles</span>
-								</button>
-							</li>
-							<li className='rounded-lg hover:bg-yellow-400/40'>
-								<button onClick={() => onEditTask(task._id)}>
-									<PencilLineIcon
-										size={20}
-										className='text-sky-500'
-									/>
-									<span>Editar tarea</span>
-								</button>
-							</li>
-							<li>
-								<button
-									onClick={() => {
-										toast.error('Esta accion aun no esta disponible', {
-											duration: 3000,
-										});
-									}}
-								>
-									<Copy
-										size={20}
-										className='text-lime-500'
-									/>
-									<span>Duplicar tarea</span>
-								</button>
-							</li>
-							<li className='rounded-lg hover:bg-yellow-400/40'>
-								<button onClick={handleDeleteTask}>
-									<Trash
-										size={20}
-										className='text-red-500'
-									/>
-									<span>Eliminar tarea</span>
-								</button>
-							</li>
-						</ul>
+				<div className='dropdown dropdown-left absolute -right-4 -top-4'>
+					<div
+						tabIndex={0}
+						role='button'
+						className='btn btn-square btn-sm m-1 border-0 bg-yellow-300 text-gray-800 hover:bg-yellow-400'
+					>
+						<EllipsisVerticalIcon size={20} />
 					</div>
-				)}
+
+					<ul
+						tabIndex={0}
+						className='menu dropdown-content z-[1] w-52 space-y-1 rounded-box bg-yellow-200/70 text-gray-800 shadow-lg backdrop-blur-sm'
+					>
+						<li className='rounded-lg hover:bg-yellow-400/40'>
+							<button onClick={() => onViewTask(task._id)}>
+								<ListChecks
+									size={20}
+									className='text-green-500'
+								/>
+								<span>Ver detalles</span>
+							</button>
+						</li>
+						{hasAuth && (
+							<>
+								<li className='rounded-lg hover:bg-yellow-400/40'>
+									<button onClick={() => onEditTask(task._id)}>
+										<PencilLineIcon
+											size={20}
+											className='text-sky-500'
+										/>
+										<span>Editar tarea</span>
+									</button>
+								</li>
+								<li>
+									<button
+										onClick={() => {
+											toast.error('Esta accion aun no esta disponible', {
+												duration: 3000,
+											});
+										}}
+									>
+										<Copy
+											size={20}
+											className='text-lime-500'
+										/>
+										<span>Duplicar tarea</span>
+									</button>
+								</li>
+								<li className='rounded-lg hover:bg-yellow-400/40'>
+									<button onClick={handleDeleteTask}>
+										<Trash
+											size={20}
+											className='text-red-500'
+										/>
+										<span>Eliminar tarea</span>
+									</button>
+								</li>
+							</>
+						)}
+					</ul>
+				</div>
 
 				<p className='mt-4 line-clamp-4 min-h-16 text-ellipsis text-sm text-gray-600 antialiased'>
 					{task.description}
