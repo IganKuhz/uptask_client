@@ -46,6 +46,15 @@ function LoginPage() {
 					UpTask es una aplicación para la gestión de tareas y proyectos. Puedes
 					crear, editar y eliminar proyectos y tareas de forma sencilla.
 				</p>
+
+				<div className='pt-6'>
+					<p className='font-semibold text-primary'>Datos de prueba:</p>
+					<code className=' text-balance text-xs'>
+						Correo: cosme@fulanito.com
+						<br />
+						Contraseña: #?A1s2D3F4.
+					</code>
+				</div>
 			</div>
 
 			<div className='card w-full max-w-md shrink-0 bg-base-100 shadow-md transition-all'>
