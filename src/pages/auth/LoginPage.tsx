@@ -49,10 +49,10 @@ function LoginPage() {
 
 				<div className='pt-6'>
 					<p className='font-semibold text-primary'>Datos de prueba:</p>
-					<code className=' text-balance text-xs'>
-						Correo: cosme@fulanito.com
+					<code className='text-balance text-xs'>
+						Correo: victor@tazo.com
 						<br />
-						Contraseña: #?A1s2D3F4.
+						{'Contraseña: #A12c3sl?{.2'}
 					</code>
 				</div>
 			</div>
