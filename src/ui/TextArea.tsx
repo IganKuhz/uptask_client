@@ -16,7 +16,7 @@ type TextAreaProps<T extends FieldValues> = {
 	title: string;
 	placeholder?: string;
 	name: Path<T>;
-	rules?: RegisterOptions;
+	rules?: RegisterOptions<T, Path<T>> | undefined;
 	errors?: FieldError;
 	register: UseFormRegister<T>;
 } & ComponentPropsWithoutRef<'textarea'>;

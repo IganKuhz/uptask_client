@@ -15,7 +15,7 @@ type InputIconProps<T extends FieldValues> = {
 	icon: ReactNode;
 	type: HTMLInputTypeAttribute;
 	name: Path<T>;
-	rules?: RegisterOptions;
+	rules?: RegisterOptions<T, Path<T>> | undefined;
 	errors?: FieldError;
 	register: UseFormRegister<T>;
 } & ComponentPropsWithoutRef<'input'>;
@@ -38,7 +38,7 @@ function InputIcon<T extends FieldValues>({
 						id={name}
 						{...(register && register(name, rules))}
 						{...props}
-						className={`input input-sm join-item input-bordered w-full text-center transition-all focus:input-primary ${errors && 'input-error focus:input-error '} transition-all md:input-md placeholder:font-medium placeholder:italic`}
+						className={`input input-sm join-item input-bordered w-full text-center transition-all focus:input-primary ${errors && 'input-error focus:input-error'} transition-all md:input-md placeholder:font-medium placeholder:italic`}
 					/>
 					<div className='absolute left-3 rounded bg-base-100 p-1 text-base-content'>
 						{icon}
@@ -47,7 +47,7 @@ function InputIcon<T extends FieldValues>({
 				<input
 					type='submit'
 					value={errors ? 'Error' : 'Enviar'}
-					className={`btn join-item btn-sm w-24 rounded md:btn-md md:rounded-md ${errors ? 'btn-error' : 'btn-primary '}`}
+					className={`btn join-item btn-sm w-24 rounded md:btn-md md:rounded-md ${errors ? 'btn-error' : 'btn-primary'}`}
 				/>
 			</div>
 

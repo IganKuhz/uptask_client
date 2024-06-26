@@ -12,7 +12,7 @@ type InputProps<T extends FieldValues> = {
 	title: string;
 	placeholder?: string;
 	name: Path<T>;
-	rules?: RegisterOptions;
+	rules?: RegisterOptions<T, Path<T>> | undefined;
 	errors?: FieldError;
 	register: UseFormRegister<T>;
 } & ComponentPropsWithoutRef<'input'>;
@@ -40,7 +40,7 @@ function Input<T extends FieldValues>({
 					id={name}
 					{...(register && register(name, rules))}
 					{...props}
-					className={`input input-sm input-bordered w-full transition-all focus:input-primary ${errors && 'input-error focus:input-error '} md:input-md placeholder:font-medium placeholder:italic`}
+					className={`input input-sm input-bordered w-full transition-all focus:input-primary ${errors && 'input-error focus:input-error'} md:input-md placeholder:font-medium placeholder:italic`}
 				/>
 
 				{/* Handle errors */}

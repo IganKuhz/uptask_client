@@ -17,7 +17,7 @@ type InputProps<T extends FieldValues> = {
 	title: string;
 	placeholder?: string;
 	name: Path<T>;
-	rules?: RegisterOptions;
+	rules?: RegisterOptions<T, Path<T>> | undefined;
 	errors?: FieldError;
 	register: UseFormRegister<T>;
 } & ComponentPropsWithoutRef<'input'>;
@@ -50,13 +50,13 @@ function InputPassword<T extends FieldValues>({
 				>
 					<span className='label-text'>{title}</span>
 				</label>
-				<div className='relative  flex items-center'>
+				<div className='relative flex items-center'>
 					<input
 						type={togglePass ? 'text' : `${type}`}
 						id={name}
 						{...(register && register(name, rules))}
 						{...props}
-						className={`input input-sm input-bordered w-full transition-all focus:input-primary ${errors && 'input-error focus:input-error '} md:input-md placeholder:font-medium placeholder:italic`}
+						className={`input input-sm input-bordered w-full transition-all focus:input-primary ${errors && 'input-error focus:input-error'} md:input-md placeholder:font-medium placeholder:italic`}
 					/>
 					<div className='absolute right-3 rounded bg-base-100 p-1 text-base-content transition-all hover:cursor-pointer hover:text-primary'>
 						{!togglePass ? (
